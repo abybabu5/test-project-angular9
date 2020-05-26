@@ -11,8 +11,14 @@
       </div>
       <button class="btn btn-warning" [disabled]="username === ''" (click)="username = ''">Reset Username</button>
       <hr>
-      <div class="btn btn-primary" (click)="showPassword = !showPassword">Display Details</div>
+<!--      <div class="btn btn-primary" (click)="showPassword = !showPassword">Display Details</div>-->
+      <div class="btn btn-primary" (click)="onToggleDetails()">Display Details</div>
       <p *ngIf="showPassword">Secret Password = C0lC4zz0</p>
+      <div *ngFor="let logItem of log;  let i = index"
+      [ngStyle]="{backgroundColor: i >= 5? 'blue' : 'transparent'}"
+           [ngClass]= "{'text-white' : i >= 5}"
+      >{{logItem}}
+     </div>
     </div>
   </div>
 </div>
